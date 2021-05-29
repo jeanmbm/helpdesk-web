@@ -1,0 +1,44 @@
+
+<div class="card">
+  <div class="card-header">
+    Manutenção de Departamentos:
+  </div>
+
+  <div class="card-body">
+    <div class="card-container">
+      <div>
+        <form [formGroup]="formDepartamento" (ngSubmit)="onSubmit" class="form-exemplo">
+
+<!--          <div style="display: none">-->
+<!--            <mat-form-field class="exemplo-full-width">-->
+<!--              <mat-label>ID</mat-label>-->
+<!--              <input matImput formControlName="id">-->
+<!--            </mat-form-field>-->
+<!--          </div>-->
+
+          <mat-form-field class="exemple-full-width">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput formControlName="nome" placeholder="Ex.: Manutenção" [errorStateMatcher]="matcher" required>
+            <mat-error *ngIf="getControl.nome.hasError('nome') &&
+                  !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="exemplo-full-width">
+          <mat-label>Descrição</mat-label>
+          <input type="text" matInput placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit."
+                 formControlName="descricao" pattern="[a-zA-Z]*" required>
+          <mat-error *ngIf="getControl.descricao.hasError('nome') &&
+            !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+        </mat-form-field>
+
+          <hr>
+
+          <button mat-button type="submit" (click)="onSubmit()" color="primary">Salvar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

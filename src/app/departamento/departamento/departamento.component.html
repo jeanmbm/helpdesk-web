@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h1>Listagem de categorias</h1>
+    <h1>Listagem de departamentos</h1>
   </div>
 
   <br>
@@ -8,22 +8,22 @@
   <div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <!-- Id position -->
+      <!-- Id column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let categoria"> {{categoria.id}} </td>
+        <td mat-cell *matCellDef="let departamento"> {{departamento.id}} </td>
       </ng-container>
 
-      <!-- Nome position -->
+      <!-- Nome column -->
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let categoria"> {{categoria.nome}} </td>
+        <td mat-cell *matCellDef="let departamento"> {{departamento.nome}} </td>
       </ng-container>
 
-      <!-- Descrição position -->
+      <!-- Descrição column -->
       <ng-container matColumnDef="descricao">
         <th mat-header-cell *matHeaderCellDef> Descrição </th>
-        <td mat-cell *matCellDef="let categoria"> {{categoria.descricao}} </td>
+        <td mat-cell *matCellDef="let departamento"> {{departamento.descricao}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -33,7 +33,8 @@
     <br>
     <hr>
 
-    <button mat-stroked-button color="primary" (click)="salvar()">Salvar</button>
+   <button mat-stroked-button color="primary" (click)="salvar()">Salvar</button>
 
   </div>
 </div>
+
