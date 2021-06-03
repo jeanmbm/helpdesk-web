@@ -11,6 +11,8 @@ import {DepartamentoModule} from './departamento/departamento.module';
 import {IConfig, NgxMaskModule} from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import {LoginModule} from './login/login.module';
+import {EspecialidadeModule} from './especialidade/especialidade.module';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -29,7 +31,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     NgxMaskModule.forRoot(),
     DepartamentoModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule,
+    EspecialidadeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

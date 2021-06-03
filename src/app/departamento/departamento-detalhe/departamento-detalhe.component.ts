@@ -75,7 +75,6 @@ export class DepartamentoDetalheComponent implements OnInit, MyErrorStateMatcher
       });
       this.router.navigate(['/departamento']);
     }
-
   }
 
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

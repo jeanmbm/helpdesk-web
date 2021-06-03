@@ -51,8 +51,8 @@ export class DepartamentoComponent implements OnInit {
     this.router.navigate(['/departamento-detalhe', departamento.id]);
   }
 
-  deletar(departamento: DepartamentoDto): void {
-    this.departamentoService.deletarDepartamento(departamento.id);
+  deletar(id: number): void {
+    this.departamentoService.deletarDepartamento(id);
   }
 
 }

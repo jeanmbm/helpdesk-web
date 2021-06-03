@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CategoriaDto} from '../../../model/categoria-dto';
 import {CategoriaService} from '../categoria.service';
 import {Location} from '@angular/common';
+import {Router} from '@angular/router';
+import {DepartamentoDto} from '../../../model/departamento-dto';
 
 @Component({
   selector: 'app-categoria',
@@ -13,20 +15,17 @@ export class CategoriaComponent implements OnInit {
 
   constructor(
     private categoriaService: CategoriaService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
-  displayedColumns: string[] = [ 'id', 'nome', 'descricao'];
+  displayedColumns: string[] = [ 'id', 'nome', 'descricao', 'acoes'];
 
   categoria: CategoriaDto = {
     id: 0,
     nome: 'Categoria Angular',
     descricao: 'Eros mattis magna donec amet eu posuere amet scelerisque dapibus dolor, lacinia arcu pellentesque vel tellus volutpat est elit mattis eget, elit ullamcorper posuere tempus aliquam tristique curabitur faucibus vulputate. '
   };
-
-  //   {id: 2, nome: 'Categoria 2', descricao: 'Lorem ipsum inceptos accumsan purus praesent, fames ante a lectus. '},
-  //   {id: 3, nome: 'Categoria 3', descricao: 'Lorem ipsum scelerisque pulvinar, luctus curabitur ligula conubia, suscipit tempor. '},
-  // ];
 
   categorias: CategoriaDto[];
 
@@ -46,6 +45,14 @@ export class CategoriaComponent implements OnInit {
       this.dataSource = this.categorias;
       location.reload();
     });
+  }
+
+  editar(categoria: CategoriaDto): void {
+    this.router.navigate(['/categoria-detalhe', categoria.id]);
+  }
+
+  deletar(categoria: CategoriaDto): void {
+    this.categoriaService.deletarCategoria(categoria.id);
   }
 
 }

@@ -4,9 +4,10 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { CategoriaDetalheComponent } from './categoria-detalhe/categoria-detalhe.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { CategoriaRoutingModule } from './categoria-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import {MatInputModule} from '@angular/material/input';
     CategoriaDetalheComponent
   ],
     imports: [
-        CommonModule,
-        MatTableModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule
+      CommonModule,
+      MatTableModule,
+      MatButtonModule,
+      MatFormFieldModule,
+      MatInputModule,
+      FormsModule,
+      ReactiveFormsModule,
+      CategoriaRoutingModule
     ]
 })
 export class CategoriaModule { }

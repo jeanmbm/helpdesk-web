@@ -1,5 +1,5 @@
 
-<div class="card" class="mat-elevation-z8">
+<div class="card mat-elevation-z8">
   <div class="card-header">
     <h1>Manutenção de Departamentos:</h1>
   </div>
@@ -18,7 +18,7 @@
 
           <mat-form-field class="exemple-full-width">
             <mat-label>Nome</mat-label>
-            <input type="text" matInput formControlName="nome" placeholder="Ex.: Manutenção"
+            <input type="text" matInput formControlName="nome" placeholder="Ex.: Técnicos"
                    [errorStateMatcher]="matcher" required>
             <mat-error *ngIf="getControl.nome.hasError('nome') &&
                   !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>

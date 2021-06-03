@@ -9,10 +9,10 @@ import {UserDto} from '../../model/user-dto';
 })
 export class AuthGuardService {
 
-  private logedIn = new BehaviorSubject<boolean>(false);
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
-    return this.logedIn.asObservable();
+    return this.loggedIn.asObservable();
   }
 
   constructor(
@@ -22,13 +22,13 @@ export class AuthGuardService {
 
   login(user: UserDto) {
     if (user.userName !== '' && user.password !== '') {
-      this.logedIn.next(true);
-      this.router.navigate(['/home']);
+      this.loggedIn.next(true);
+      this.router.navigate(['/']);
     }
   }
 
   logout() {
-    this.logedIn.next(false);
+    this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }
 

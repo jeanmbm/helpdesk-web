@@ -1,12 +1,13 @@
+
 <div class="card mat-elevation-z8">
   <div class="card-header">
-    <h1>Manutenção de Categorias:</h1>
+    <h1>Manutenção de Especialidade:</h1>
   </div>
 
   <div class="card-body">
     <div class="card-container">
       <div>
-        <form [formGroup]="formCategoria" (ngSubmit)="onSubmit" class="form-exemplo">
+        <form [formGroup]="formEspecialidade" (ngSubmit)="onSubmit" class="form-exemplo">
 
           <div style="display: none">
             <mat-form-field class="exemplo-full-width">
@@ -17,8 +18,7 @@
 
           <mat-form-field class="exemple-full-width">
             <mat-label>Nome</mat-label>
-            <input type="text" matInput placeholder="Ex.: Manutenção"
-                   formControlName="nome" [errorStateMatcher]="matcher" required>
+            <input type="text" matInput formControlName="nome" placeholder="Ex.: Redes" [errorStateMatcher]="matcher" required>
             <mat-error *ngIf="getControl.nome.hasError('nome') &&
                   !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
           </mat-form-field>
@@ -27,10 +27,20 @@
 
           <mat-form-field class="exemplo-full-width">
             <mat-label>Descrição</mat-label>
-            <input [errorStateMatcher]="matcher" formControlName="descricao" matInput
-                   placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit." required type="text">
-            <mat-error *ngIf="getControl.descricao.hasError('descricao') &&
-              !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+            <input type="text" matInput placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit."
+                   [errorStateMatcher]="matcher" formControlName="descricao" required>
+            <mat-error *ngIf="getControl.descricao.hasError('nome') &&
+            !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Área</mat-label>
+            <select matNativeControl formControlName="area" required>
+              <option value="HARDWARE">Hardware</option>
+              <option value="SOFTWARE">Software</option>
+            </select>
           </mat-form-field>
 
           <hr>

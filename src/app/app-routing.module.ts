@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DepartamentoDetalheComponent} from './departamento/departamento-detalhe/departamento-detalhe.component';
+import {LoginComponent} from './login/login.component';
+import {CategoriaComponent} from './categoria/categoria/categoria.component';
+import {AuthGuard} from './guards/auth-guard';
 
 
 const departamentoRouts: Routes = [
-  {path: 'home', component: DepartamentoDetalheComponent}
+  {path: 'login', component: LoginComponent},
+  {path: '', component: CategoriaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

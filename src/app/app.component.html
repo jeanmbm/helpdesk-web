@@ -1,35 +1,104 @@
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn$ | async" >-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--  <div class="collapse navbar-collapse" id="navbarText">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" id="navdrop">Departamentos</a>-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<!--          <div class="dropdown-menu">-->
+<!--            <a class="nav-link" routerLink="/departamento">Departamentos</a>-->
+<!--            <a class="nav-link" routerLink="/departamento-detalhe">Departamento-Detalhe</a>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <ul class="navbar-nav ml-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn$ | async">Logout</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<!--<body>-->
+<!--<div id="content" class="p-4 p-md-5 pt-5">-->
+<!--  <router-outlet></router-outlet>-->
+<!--</div>-->
+<!--</body>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn$ | async" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home"> Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" >Logout</a>
+          <a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn$ | async">Logout</a>
         </li>
       </ul>
     </div>
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/departamento">Departamentos</a>
+          <a class="nav-link" routerLink="/departamento">Departamento</a>
         </li>
       </ul>
     </div>
     <div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/departamento-detalhe">Departamento-Detalhe</a>
+          <a class="nav-link" routerLink="/departamento-detalhe" >Departamento-Detalhe</a>
         </li>
       </ul>
     </div>
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/categoria">Categoria</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/categoria-detalhe" >Categoria-Detalhe</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/especialidade">Especialidades</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/especialidade-detalhe">Especialidade-detalhe</a>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </nav>
 
@@ -38,23 +107,3 @@
   <router-outlet></router-outlet>
 </div>
 </body>
-
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-<!--&lt;!&ndash;&#45;&#45;&#45;&#45; Include the above in your HEAD tag &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-
-<!--<div class="wrapper fadeInDown">-->
-<!--  <div id="formContent">-->
-<!--    &lt;!&ndash; Tabs Titles &ndash;&gt;-->
-
-
-<!--    &lt;!&ndash; Login Form &ndash;&gt;-->
-<!--    <form>-->
-<!--      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">-->
-<!--      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">-->
-<!--      <input type="submit" class="fadeIn fourth" value="Log In">-->
-<!--    </form>-->
-
-<!--  </div>-->
-<!--</div>-->

@@ -5,6 +5,7 @@ import {EMPTY, Observable} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {DepartamentoDto} from '../../model/departamento-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +36,25 @@ export class CategoriaService {
 
   editarCategoria(categoria: CategoriaDto): Observable<CategoriaDto> {
     const url = `${environment.config.URL_API}/categoria/edit`;
-    return this.httpCliente.post<CategoriaDto>(url, categoria).pipe(
+    return this.httpCliente.put<CategoriaDto>(url, categoria).pipe(
       map((categoriaSalvar) => categoria),
       catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  buscarCategoriaPorId(id: number): Observable<CategoriaDto> {
+    const url = `${environment.config.URL_API}/categoria/`;
+    return this.httpCliente.get<CategoriaDto>(url + id).pipe(
+      map((categoria) => categoria),
+      catchError( (e) => this.errorHandler(e))
+    );
+  }
+
+  deletarCategoria(id: number): void {
+    const url = `${environment.config.URL_API}/categoria/delete/`;
+    this.httpCliente.delete<CategoriaDto>(url + id).pipe(
+      map((categoria) => categoria),
+      catchError( (e) => this.errorHandler(e))
     );
   }
 
