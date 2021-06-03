@@ -41,6 +41,22 @@ export class DepartamentoService {
     );
   }
 
+  buscarDepartamentoPorId(id: number): Observable<DepartamentoDto> {
+    const url = `${environment.config.URL_API}/departamento/`;
+    return this.httpCliente.get<DepartamentoDto>(url + id).pipe(
+      map((departamento) => departamento),
+      catchError( (e) => this.errorHandler(e))
+    );
+  }
+
+  deletarDepartamento(id: number): void {
+    const url = `${environment.config.URL_API}/departamento/delete/`;
+    this.httpCliente.delete<DepartamentoDto>(url + id).pipe(
+      map((departamento) => departamento),
+      catchError( (e) => this.errorHandler(e))
+    );
+  }
+
   errorHandler(e: any): Observable<any> {
     this.showMassage('Ocorreu um erro', true);
     return EMPTY;
