@@ -1,3 +1,4 @@
+
 <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn$ | async" >-->
 <!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
 <!--    <span class="navbar-toggler-icon"></span>-->
@@ -10,24 +11,56 @@
 <!--    </ul>-->
 <!--    <div>-->
 <!--      <ul class="navbar-nav mr-auto">-->
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" id="navdrop">Departamentos</a>-->
-
-<!--          <div class="dropdown-menu">-->
-<!--            <a class="nav-link" routerLink="/departamento">Departamentos</a>-->
-<!--            <a class="nav-link" routerLink="/departamento-detalhe">Departamento-Detalhe</a>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--      <ul class="navbar-nav ml-auto">-->
 <!--        <li class="nav-item">-->
 <!--          <a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn$ | async">Logout</a>-->
 <!--        </li>-->
 <!--      </ul>-->
 <!--    </div>-->
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/departamento">Departamento</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/departamento-detalhe" >Departamento-Detalhe</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/categoria">Categoria</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/categoria-detalhe" >Categoria-Detalhe</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/especialidade">Especialidades</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" routerLink="/especialidade-detalhe">Especialidade-detalhe</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+
 <!--  </div>-->
 <!--</nav>-->
 
@@ -37,73 +70,65 @@
 <!--</div>-->
 <!--</body>-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn$ | async" >
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+<input type="checkbox" id="bt_menu">
+<label for="bt_menu">&#9776;</label>
+
+<nav class="menu" *ngIf="isLoggedIn$ | async">
+  <div>
+    <ul>
+      <li>
         <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
       </li>
-    </ul>
-    <div>
-      <ul class="navbar-nav mr-auto">
+      <li><a href="#">Categoria</a>
+        <ul>
+          <li><a routerLink="/categoria">Categoria</a></li>
+          <li><a routerLink="/categoria-detalhe">Categoria-detalhe</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Departamento</a>
+        <ul>
+          <li><a routerLink="/departamento">Departamento</a></li>
+          <li><a routerLink="/departamento-detalhe">Departamento-detalhe</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Especialidade</a>
+        <ul>
+          <li><a routerLink="/especialidade">Especialidades</a></li>
+          <li><a routerLink="/especialidade-detalhe">Especialidade-detalhe</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Servico</a>
+        <ul>
+          <li><a routerLink="/servico">Serviços</a></li>
+<!--          <li><a routerLink="/servico-detalhe">Serviço-detalhe</a></li>-->
+        </ul>
+      </li>
+      <li><a href="#">Usuário</a>
+        <ul>
+          <li><a routerLink="/usuario">Usuários</a></li>
+<!--          <li><a routerLink="/usuario-detalhe">Usuario-detalhe</a></li>-->
+        </ul>
+      </li>
+      <li><a href="#">Chamado</a>
+        <ul>
+          <li><a routerLink="/chamado">Chamados</a></li>
+          <!--<li><a routerLink="/chamado-detalhe">Chamado-detalhe</a></li>-->
+        </ul>
+      </li>
+      <div style="float: left">
         <li class="nav-item">
           <a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn$ | async">Logout</a>
         </li>
-      </ul>
-    </div>
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/departamento">Departamento</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/departamento-detalhe" >Departamento-Detalhe</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/categoria">Categoria</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/categoria-detalhe" >Categoria-Detalhe</a>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/especialidade">Especialidades</a>
-        </li>
-      </ul>
-    </div>
-
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/especialidade-detalhe">Especialidade-detalhe</a>
-        </li>
-      </ul>
-    </div>
-
+      </div>
+    </ul>
   </div>
 </nav>
 
 <body>
 <div id="content" class="p-4 p-md-5 pt-5">
+  <br>
+  <br>
   <router-outlet></router-outlet>
 </div>
 </body>
+

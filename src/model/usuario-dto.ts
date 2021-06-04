@@ -9,6 +9,6 @@ export class UsuarioDto {
   email: string;
   senha: string;
   departamento: DepartamentoDto;
-  tecnco: boolean;
+  isTecnco: boolean;
   especialidade: EspecialidadeDto;
 }

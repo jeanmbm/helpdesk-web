@@ -51,10 +51,7 @@ export class DepartamentoService {
 
   deletarDepartamento(id: number): void {
     const url = `${environment.config.URL_API}/departamento/delete/`;
-    this.httpCliente.delete<DepartamentoDto>(url + id).pipe(
-      map((departamento) => departamento),
-      catchError( (e) => this.errorHandler(e))
-    );
+    this.httpCliente.delete(url + id);
   }
 
   errorHandler(e: any): Observable<any> {

@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {LoginModule} from './login/login.module';
 import {EspecialidadeModule} from './especialidade/especialidade.module';
+import {ServicoModule} from './servico/servico.module';
+import {UsuarioModule} from './usuario/usuario.module';
+import {ChamadoModule} from './chamado/chamado.module';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -33,7 +36,10 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     RouterModule,
     AppRoutingModule,
     LoginModule,
-    EspecialidadeModule
+    EspecialidadeModule,
+    ServicoModule,
+    UsuarioModule,
+    ChamadoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

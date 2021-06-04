@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Listagem de Usuários</h1>
+  </div>
+
+  <br>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Id column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.id}} </td>
+      </ng-container>
+
+      <!-- Nome column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> NOME </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
+      </ng-container>
+
+      <!-- Telefone column -->
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef> TELEFONE </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.telefone | mask: '(00) 00000-0000'}} </td>
+      </ng-container>
+
+      <!-- CPF column -->
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef> CPF </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.cpf | mask: '000.000.000-00'}} </td>
+      </ng-container>
+
+      <!-- Email column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
+      </ng-container>
+
+      <!-- Senha column -->
+      <ng-container matColumnDef="senha">
+        <th mat-header-cell *matHeaderCellDef> SENHA </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.senha}} </td>
+      </ng-container>
+
+      <!-- Departamento column -->
+      <ng-container matColumnDef="departamento">
+        <th mat-header-cell *matHeaderCellDef> DEPARTAMENTO </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.departamento.nome}} </td>
+      </ng-container>
+
+      <!-- ìsTenico column -->
+      <ng-container matColumnDef="tecnico">
+        <th mat-header-cell *matHeaderCellDef> TÉCNICO </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.isTecnco ? "Não" : "Sim"}} </td>
+      </ng-container>
+
+      <!-- Especialidade column -->
+      <ng-container matColumnDef="especialidade">
+        <th mat-header-cell *matHeaderCellDef> ESPECIALIDADE </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.especialidade.nome}} </td>
+      </ng-container>
+
+      <!-- Ações column -->
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+        <td mat-cell *matCellDef="let usuario">
+          <div>
+            <button mat-button color="primary" (click)="editar(usuario)">Editar</button>
+            <button mat-button color="warn" (click)="deletar(usuario.id)">Excluir</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

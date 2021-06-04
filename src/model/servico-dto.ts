@@ -4,7 +4,7 @@ export class ServicoDto {
   id: number;
   nome: string;
   descricao: string;
-  prioridade: ;
-  area: ;
+  prioridade: string;
+  area: string;
   categoria: CategoriaDto;
 }

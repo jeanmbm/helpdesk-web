@@ -43,7 +43,7 @@ export class EspecialidadeDetalheComponent implements OnInit, MyErrorStateMatche
               id: [especialidade.id],
               nome: [especialidade.nome, [Validators.required, Validators.minLength(4)]],
               descricao: [especialidade.descricao, [Validators.required]],
-              area: [this.especialidade.area, [Validators.required]]
+              area: [especialidade.area, [Validators.required]]
             });
           }, error => {console.error(error); });
         } else {

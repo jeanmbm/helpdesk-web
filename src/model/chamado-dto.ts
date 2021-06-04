@@ -6,7 +6,7 @@ export class ChamadoDto {
   dataAbertura: Date;
   prazoSolucao: Date;
   dataSolucao: Date;
-  status: ;
+  status: string;
   mensagem: string;
   usuario: UsuarioDto;
   servico: ServicoDto;

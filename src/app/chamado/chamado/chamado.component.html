@@ -1,0 +1,75 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Listagem de Chamados</h1>
+  </div>
+
+  <br>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Id column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.id}} </td>
+      </ng-container>
+
+      <!-- Usuario column -->
+      <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef> USUARIO </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.usuario.nome}} </td>
+      </ng-container>
+
+      <!-- Servico column -->
+      <ng-container matColumnDef="servico">
+        <th mat-header-cell *matHeaderCellDef> SERVICO </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.servico.nome}} </td>
+      </ng-container>
+
+      <!-- Servico column -->
+      <ng-container matColumnDef="mensagem">
+        <th mat-header-cell *matHeaderCellDef> MENSAGEM </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.mensagem}} </td>
+      </ng-container>
+
+      <!-- Status column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> STATUS </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.status}} </td>
+      </ng-container>
+
+      <!-- DataAbertura column -->
+      <ng-container matColumnDef="dataAbertura">
+        <th mat-header-cell *matHeaderCellDef> DATA DE ABERTURA </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.dataAbertura| mask: '0000/00/00'}} </td>
+      </ng-container>
+
+      <!-- PrazoSolucao column -->
+      <ng-container matColumnDef="prazoSolucao">
+        <th mat-header-cell *matHeaderCellDef> PRAZO PARA SOLUÇÃO </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.prazoSolucao| mask: '0000/00/00'}} </td>
+      </ng-container>
+
+      <!-- DataSolucao column -->
+      <ng-container matColumnDef="dataSolucao">
+        <th mat-header-cell *matHeaderCellDef> DATA DO ENCERRAMENTO </th>
+        <td mat-cell *matCellDef="let chamado"> {{chamado.dataSolucao | mask: '0000/00/00'}} </td>
+      </ng-container>
+
+      <!-- Ações column -->
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+        <td mat-cell *matCellDef="let chamado">
+          <div>
+            <button mat-button color="primary" (click)="editar(chamado)">Editar</button>
+            <button mat-button color="warn" (click)="deletar(chamado.id)">Excluir</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</div>

@@ -16,23 +16,23 @@
 
       <!-- Nome column -->
       <ng-container matColumnDef="nome">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <th mat-header-cell *matHeaderCellDef> NOME </th>
         <td mat-cell *matCellDef="let departamento"> {{departamento.nome}} </td>
       </ng-container>
 
       <!-- Descrição column -->
       <ng-container matColumnDef="descricao">
-        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
         <td mat-cell *matCellDef="let departamento"> {{departamento.descricao}} </td>
       </ng-container>
 
       <!-- Ações column -->
       <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
         <td mat-cell *matCellDef="let departamento">
           <div>
             <button mat-button color="primary" (click)="editar(departamento)">Editar</button>
-            <button mat-button color="warn" (click)="deletar(departamento.id)">Excluir</button>
+            <button mat-button color="warn" (click)="deletar(departamento)">Excluir</button>
           </div>
         </td>
       </ng-container>
@@ -40,12 +40,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-    <br>
-    <hr>
-
-   <button mat-stroked-button color="primary" (click)="salvar()">Salvar</button>
-
   </div>
 </div>
 

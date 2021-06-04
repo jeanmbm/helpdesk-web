@@ -21,8 +21,8 @@ export class EspecialidadeComponent implements OnInit {
 
   displayedColumns: string[] = [ 'id', 'nome', 'descricao', 'area', 'acoes'];
 
-  especialidades: EspecialidadeDto[];
   especialidade: EspecialidadeDto;
+  especialidades: EspecialidadeDto[];
 
   dataSource;
 

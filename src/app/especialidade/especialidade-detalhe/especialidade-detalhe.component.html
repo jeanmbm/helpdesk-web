@@ -29,7 +29,7 @@
             <mat-label>Descrição</mat-label>
             <input type="text" matInput placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit."
                    [errorStateMatcher]="matcher" formControlName="descricao" required>
-            <mat-error *ngIf="getControl.descricao.hasError('nome') &&
+            <mat-error *ngIf="getControl.descricao.hasError('descricao') &&
             !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
           </mat-form-field>
 
