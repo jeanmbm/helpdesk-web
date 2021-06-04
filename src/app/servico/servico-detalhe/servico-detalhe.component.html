@@ -62,13 +62,13 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Categoria</mat-label>
-            <mat-select formControlName="categoria" required>
+            <mat-select formControlName="idCategoria" required>
               <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
                 {{ categoria.nome }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="getControl.categoria.hasError('categoria') &&
-            !getControl.categoria.hasError('required')">Campo obrigatório</mat-error>
+            <mat-error *ngIf="getControl.idCategoria.hasError('idCategoria') &&
+            !getControl.idCategoria.hasError('required')">Campo obrigatório</mat-error>
           </mat-form-field>
 
           <hr>

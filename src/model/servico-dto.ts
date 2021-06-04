@@ -7,4 +7,5 @@ export class ServicoDto {
   prioridade: string;
   area: string;
   categoria: CategoriaDto;
+  idCategoria: number;
 }

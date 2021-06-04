@@ -35,6 +35,9 @@ export class ServicoComponent implements OnInit {
   }
 
   salvar(): void {
+    this.categoriaService.buscarCategoriaPorId(this.servico.idCategoria).subscribe(dados =>{
+      this.servico.categoria = dados;
+    });
     this.servicoService.salvarServico(this.servico).subscribe((dados) => {
       this.servicoService.showMassage('!! Serviço salvo com sucesso !!', false);
       this.servicos.push(dados);
