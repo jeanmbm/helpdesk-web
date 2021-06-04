@@ -1,78 +1,82 @@
-<h1>Servico-detalhe incompleto(dando bugs)</h1>
+<div class="card mat-elevation-z8">
+  <div class="card-header">
+    <h1>Manutenção de Serviço:</h1>
+  </div>
 
-<!--<div class="card mat-elevation-z8">-->
-<!--  <div class="card-header">-->
-<!--    <h1>Manutenção de Serviço:</h1>-->
-<!--  </div>-->
+  <div class="card-body">
+    <div class="card-container">
+      <div>
+        <form [formGroup]="formServico" *ngIf="formServico" (ngSubmit)="onSubmit" class="form-exemplo">
 
-<!--  <div class="card-body">-->
-<!--    <div class="card-container">-->
-<!--      <div>-->
-<!--        <form [formGroup]="formServico" *ngIf="formServico" (ngSubmit)="onSubmit" class="form-exemplo">-->
+          <div style="display: none">
+            <mat-form-field class="exemplo-full-width">
+              <mat-label>ID</mat-label>
+              <input matInput formControlName="id">
+            </mat-form-field>
+          </div>
 
-<!--          <div style="display: none">-->
-<!--            <mat-form-field class="exemplo-full-width">-->
-<!--              <mat-label>ID</mat-label>-->
-<!--              <input matInput formControlName="id">-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
+          <mat-form-field class="exemple-full-width">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput formControlName="nome" placeholder="Ex.: Manutenção" [errorStateMatcher]="matcher" required>
+            <mat-error *ngIf="getControl.nome.hasError('nome') &&
+                  !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+          </mat-form-field>
 
-<!--          <mat-form-field class="exemple-full-width">-->
-<!--            <mat-label>Nome</mat-label>-->
-<!--            <input type="text" matInput formControlName="nome" placeholder="Ex.: Manutenção" [errorStateMatcher]="matcher" required>-->
-<!--            <mat-error *ngIf="getControl.nome.hasError('nome') &&-->
-<!--                  !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>-->
-<!--          </mat-form-field>-->
+          <br>
 
-<!--          <br>-->
+          <mat-form-field class="exemplo-full-width">
+            <mat-label>Descrição</mat-label>
+            <input type="text" matInput placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit."
+                   [errorStateMatcher]="matcher" formControlName="descricao" required>
+            <mat-error *ngIf="getControl.descricao.hasError('descricao') &&
+            !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+          </mat-form-field>
 
-<!--          <mat-form-field class="exemplo-full-width">-->
-<!--            <mat-label>Descrição</mat-label>-->
-<!--            <input type="text" matInput placeholder="Ex.: Lorem ipsum hendrerit ac, aptent ante primis hendrerit."-->
-<!--                   [errorStateMatcher]="matcher" formControlName="descricao" required>-->
-<!--            <mat-error *ngIf="getControl.descricao.hasError('descricao') &&-->
-<!--            !getControl.descricao.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>-->
-<!--          </mat-form-field>-->
+          <br>
 
-<!--          <br>-->
+          <mat-form-field appearance="fill">
+            <mat-label>Prioridade</mat-label>
+            <mat-select formControlName="prioridade" required>
+              <mat-option value="BAIXA">Baixa</mat-option>
+              <mat-option value="MEDIA">Média</mat-option>
+              <mat-option value="ALTA">Alta</mat-option>
+              <mat-option value="URGENTE">Urgente</mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl.prioridade.hasError('prioridade') &&
+            !getControl.prioridade.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
 
-<!--          <mat-form-field appearance="fill">-->
-<!--            <mat-label>Prioridade</mat-label>-->
-<!--            <select matNativeControl formControlName="prioridade" required>-->
-<!--              <option value="BAIXA">Baixa</option>-->
-<!--              <option value="MEDIA">Média</option>-->
-<!--              <option value="ALTA">Alta</option>-->
-<!--              <option value="URGENTE">Urgente</option>-->
-<!--            </select>-->
-<!--          </mat-form-field>-->
+          <br>
 
-<!--          <br>-->
+          <mat-form-field appearance="fill">
+            <mat-label>Área</mat-label>
+            <mat-select formControlName="area" required>
+              <mat-option value="HARDWARE">Hardware</mat-option>
+              <mat-option value="SOFTWARE">Software</mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl.area.hasError('area') &&
+            !getControl.area.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
 
-<!--          <mat-form-field appearance="fill">-->
-<!--            <mat-label>Área</mat-label>-->
-<!--            <select matNativeControl formControlName="area" required>-->
-<!--              <option value="HARDWARE">Hardware</option>-->
-<!--              <option value="SOFTWARE">Software</option>-->
-<!--            </select>-->
-<!--          </mat-form-field>-->
+          <br>
 
-<!--          <br>-->
+          <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="categoria" required>
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                {{ categoria.nome }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl.categoria.hasError('categoria') &&
+            !getControl.categoria.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
 
-<!--          <mat-form-field appearance="fill">-->
-<!--            <mat-label>Categoria</mat-label>-->
-<!--            <mat-select formControlName="categoria">-->
-<!--              <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">-->
-<!--                {{ categoria.nome }}-->
-<!--              </mat-option>-->
-<!--            </mat-select>-->
-<!--          </mat-form-field>-->
+          <hr>
 
-<!--          <hr>-->
+          <button mat-button type="submit" (click)="onSubmit()" color="primary">Salvar</button>
 
-<!--          <button mat-button type="submit" (click)="onSubmit()" color="primary">Salvar</button>-->
-
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -50,10 +50,10 @@ export class ServicoDetalheComponent implements OnInit, MyErrorStateMatcher {
           this.formServico = this.formBuilder.group({
             id: [servico.id],
             nome: [servico.nome, [Validators.required, Validators.minLength(4)]],
-            descricao: [servico.descricao, [Validators.required], Validators.minLength(10)],
+            descricao: [servico.descricao, [Validators.required, Validators.minLength(10)]],
             prioridade: [servico.prioridade, [Validators.required]],
             area: [servico.area, [Validators.required]],
-            categoria: [servico.categoria.nome, [Validators.required]],
+            categoria: [servico.categoria.nome, [Validators.required]]
           });
         }, error => {console.error(error); });
       } else {
@@ -68,10 +68,10 @@ export class ServicoDetalheComponent implements OnInit, MyErrorStateMatcher {
         this.formServico = this.formBuilder.group({
           id: [this.servico.id],
           nome: [this.servico.nome, [Validators.required, Validators.minLength(4)]],
-          descricao: [this.servico.descricao, [Validators.required], Validators.minLength(10)],
+          descricao: [this.servico.descricao, [Validators.required, Validators.minLength(10)]],
           prioridade: [this.servico.prioridade, [Validators.required]],
           area: [this.servico.area, [Validators.required]],
-          categoria: [this.servico.categoria.nome, [Validators.required]],
+          categoria: [this.servico.categoria, [Validators.required]]
         });
       }
     });
