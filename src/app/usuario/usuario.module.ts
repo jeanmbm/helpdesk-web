@@ -6,6 +6,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import {NgxMaskModule} from 'ngx-mask';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -18,12 +22,16 @@ import {NgxMaskModule} from 'ngx-mask';
     UsuarioComponent,
     UsuarioDetalheComponent
   ],
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatButtonModule,
-    UsuarioRoutingModule,
-    NgxMaskModule
-  ]
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatButtonModule,
+        UsuarioRoutingModule,
+        NgxMaskModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSelectModule
+    ]
 })
 export class UsuarioModule { }

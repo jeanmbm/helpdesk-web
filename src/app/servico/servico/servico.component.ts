@@ -3,9 +3,7 @@ import {ServicoService} from '../servico.service';
 import {ServicoDto} from '../../../model/servico-dto';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
-import {CategoriaDto} from '../../../model/categoria-dto';
 import {CategoriaService} from '../../categoria/categoria.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-servico',
@@ -25,7 +23,6 @@ export class ServicoComponent implements OnInit {
   dataSource;
   servicos: ServicoDto[];
   servico: ServicoDto;
-  categoria: CategoriaDto;
 
   ngOnInit(): void {
     this.servicoService.listarServicos().subscribe( dados => {
@@ -35,7 +32,7 @@ export class ServicoComponent implements OnInit {
   }
 
   salvar(): void {
-    this.categoriaService.buscarCategoriaPorId(this.servico.idCategoria).subscribe(dados =>{
+    this.categoriaService.buscarCategoriaPorId(this.servico.idCategoria).subscribe(dados => {
       this.servico.categoria = dados;
     });
     this.servicoService.salvarServico(this.servico).subscribe((dados) => {

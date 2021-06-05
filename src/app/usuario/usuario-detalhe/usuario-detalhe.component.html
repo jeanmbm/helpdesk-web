@@ -1,1 +1,107 @@
-<p>usuario-detalhe works!</p>
+<div class="card mat-elevation-z8">
+  <div class="card-header">
+    <h1>Manutenção de Serviço:</h1>
+  </div>
+
+  <div class="card-body">
+    <div class="card-container">
+      <div>
+        <form [formGroup]="formUsuario" *ngIf="formUsuario" (ngSubmit)="onSubmit" class="form-exemplo">
+
+          <div style="display: none">
+            <mat-form-field class="exemplo-full-width">
+              <mat-label>ID</mat-label>
+              <input matInput formControlName="id">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field class="exemple-full-width">
+            <mat-label>Nome</mat-label>
+            <input type="text" matInput formControlName="nome" placeholder="Ex.: Manutenção" [errorStateMatcher]="matcher" required>
+            <mat-error *ngIf="getControl.nome.hasError('nome') &&
+                  !getControl.nome.hasError('required')">Campo obrigatório, utilize somente letras</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="exemplo-full-width">
+            <mat-label>Telefone</mat-label>
+            <input type="text" matInput placeholder="Ex.: (11) 99999-9999"
+                   [errorStateMatcher]="matcher" formControlName="telefone" mask="(00) 00000-0000" required>
+            <mat-error *ngIf="getControl.telefone.hasError('telefone') &&
+            !getControl.telefone.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="exemplo-full-width">
+            <mat-label>CPF</mat-label>
+            <input type="text" matInput placeholder="Ex.: (11) 99999-9999"
+                   [errorStateMatcher]="matcher" formControlName="cpf" mask="000.000.000-99" required>
+            <mat-error *ngIf="getControl.cpf.hasError('cpf') &&
+            !getControl.cpf.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="exemplo-full-width">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput placeholder="Ex.: emailteste@teste.com"
+                   [errorStateMatcher]="matcher" formControlName="email" required>
+            <mat-error *ngIf="getControl.email.hasError('email') &&
+            !getControl.email.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="exemplo-full-width">
+            <mat-label>Senha</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="senha" required>
+            <mat-error *ngIf="getControl.senha.hasError('senha') &&
+            !getControl.senha.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Departamento</mat-label>
+            <mat-select formControlName="idDepartamento" required>
+              <mat-option *ngFor="let departamento of departamentos" [value]="departamento.id">
+                {{ departamento.nome }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl.idDepartamento.hasError('idDepartamento') &&
+            !getControl.idDepartamento.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>É tecnico?</mat-label>
+            <mat-select formControlName="isTecnico" required>
+              <mat-option value="true">Sim</mat-option>
+              <mat-option value="false">Não</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Especialidade</mat-label>
+            <mat-select formControlName="idEspecialidade">
+              <mat-option value="0"></mat-option>
+              <mat-option *ngFor="let especialidade of especialidades" [value]="especialidade.id">
+                {{ especialidade.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <hr>
+
+          <button mat-button type="submit" (click)="onSubmit()" color="primary">Salvar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
