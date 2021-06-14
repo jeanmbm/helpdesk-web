@@ -80,6 +80,10 @@ export class ServicoDetalheComponent implements OnInit, MyErrorStateMatcher {
 
   onSubmit(): void {
     this.servico = this.formServico.value;
+    this.categoriaService.buscarCategoriaPorId(this.servico.idCategoria).subscribe(categoria => {
+      this.servico.categoria = categoria;
+    });
+
     if (this.servico.id == null) {
       this.servicoService.salvarServico(this.servico).subscribe( () => {
         this.servicoService.showMassage('Servico salvo com sucesso!!', false);
